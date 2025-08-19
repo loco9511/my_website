@@ -1,0 +1,613 @@
+/* -------------------------
+  CSS VARIABLES
+-------------------------- */
+:root {
+  --color-primary: #5f6fa5;            
+  --color-primary-dark: #49568c;      
+  --color-text: #333;               
+  --color-nav-text: #5d5c61;           
+  --color-background-start: #8397c5e5;  
+  --color-background-end: #cce4dc;;      
+  --color-light-bg: rgba(255, 255, 255, 0.3);
+  --color-form-bg: rgba(255, 255, 255, 0.5);
+  --header-height: 80px;
+  --footer-height: 50px;
+}
+
+/* -------------------------
+  RESET & BASE STYLES
+-------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: linear-gradient(
+    to bottom right,
+    var(--color-background-start),
+    var(--color-background-end)
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------
+  HEADER & NAVIGATION
+-------------------------- */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  height: 80px;                               
+  position: relative;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.site-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--color-primary);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-nav-text);
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--color-primary);
+}
+
+nav a[aria-current="page"] {
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 2px;
+}
+
+/* -------------------------
+  MAIN LAYOUT
+-------------------------- */
+
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  flex: 1;
+}
+
+main a {
+  text-decoration: none;
+  font-style: italic;
+  color: var(--color-primary);
+  transition: color 0.3s;
+}
+
+main a:hover,
+main a:focus {
+  color: var(--color-primary-dark);
+}
+
+/* Add vertical spacing between elements in sections */
+main section > * + * {
+  margin-top: 20px;
+}
+
+/* -------------------------
+  FOOTER
+-------------------------- */
+
+footer {
+  height: var(--footer-height);
+  line-height: var(--footer-height);
+  background: var(--color-light-bg);
+  backdrop-filter: blur(10px);
+  padding: 0 20px; 
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-nav-text);
+  margin-top: 40px;
+}
+
+footer p {
+  display: inline-block;
+}
+
+/* -------------------------
+  HERO SECTION (HOME PAGE)
+-------------------------- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  color: var(--color-nav-text);
+  margin-bottom: 15px;
+}
+
+.highlight {
+  color: var(--color-primary);
+}
+
+.hero p {
+  max-width: 600px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero strong {
+  color: var(--color-primary);
+}
+
+/* -------------------------
+  GENERIC IMAGE STYLES
+-------------------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* -------------------------
+  FORMS (CONTACT PAGE)
+-------------------------- */
+
+form {
+  background-color: var(--color-form-bg);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--color-nav-text);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(161, 140, 209, 0.5);
+}
+
+button {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--color-primary-dark);
+}
+
+/* -------------------------
+  RESUME PAGE STYLES
+-------------------------- */
+
+.resume-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--header-height);       
+  bottom: var(--footer-height);    
+  left: 0;
+  width: 220px;
+  background: transparent;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar-profile {
+  margin-bottom: 20px;
+}
+
+.sidebar-nav {
+  display: block;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 20px;
+}
+
+.sidebar-nav a {
+  display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 8px 0;
+  text-decoration: none;
+  color: var(--color-nav-text);
+  transition: color 0.3s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a:focus {
+  color: var(--color-primary);
+}
+
+.resume-content {
+  margin-left: 220px; /* Adjusted to match sidebar width */
+  padding-top: var(--header-height); 
+  padding-bottom: var(--footer-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+.resume-section {
+  min-height: 100vh;
+  padding: 80px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resume-section:first-child {
+  min-height: calc(var(--header-height) - var(--footer-height));
+  padding: 0 30px 80px;
+}
+
+.resume-section h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.resume-section h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-nav-text);
+  margin-bottom: 0.5rem;
+}
+
+.resume-section .subheading {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: 5px;
+}
+
+.resume-section .item {
+  margin-bottom: 25px;
+}
+
+.resume-section ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.resume-section p {
+  margin-bottom: 10px;
+}
+
+/* -------------------------
+  SKILLS SECTION CUSTOM STYLES
+-------------------------- */
+
+.skills-category {
+  margin-bottom: 30px;
+}
+
+.skills-category h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-nav-text);
+  margin-bottom: 5px;
+}
+
+.skills-category p {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.skills-category ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.skills-category ul li {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 5px;
+}
+
+/* -------------------------
+  SOCIAL ICONS (Rounded Style)
+-------------------------- */
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* -------------------------
+  MASONRY GALLERY (Interests Section)
+-------------------------- */
+.masonry-gallery {
+  column-count: 3;
+  column-gap: 20px;
+}
+
+.masonry-gallery img {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* -------------------------
+  PROJECTS PAGE STYLES
+-------------------------- */
+
+.projects-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.projects-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.project-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.project-slide.active {
+  display: flex;
+}
+
+.project-slide img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 3px solid rgba(255,255,255,0.5);
+}
+
+.project-date {
+  font-weight: bold;
+  color: var(--color-primary-dark);
+  margin-top: 5px;
+}
+
+.tech {
+  color: var(--color-nav-text);
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.project-controls {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.project-controls button {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.project-controls button:hover,
+.project-controls button:focus {
+  background-color: var(--color-primary-dark);
+}
+
+/* -------------------------
+  BACK TO TOP BUTTON STYLES
+-------------------------- */
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#backToTop:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.1);
+}
+
+/* -------------------------
+  RESPONSIVE STYLES
+-------------------------- */
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  header {
+    height: auto;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  :root {
+    --header-height: 270px;
+  }
+
+  .resume-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    padding: 10px 20px;
+    background: var(--color-light-bg);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar-nav li {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+
+  .sidebar-nav a {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+
+  .resume-content {
+    margin-left: 0;
+    padding-top: 20px;
+    padding-bottom: var(--footer-height);
+    min-height: auto;
+  }
+
+  .resume-section {
+    padding: 40px 20px;
+  }
+
+  .resume-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .resume-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .resume-section p {
+    font-size: 0.95rem;
+  }
+}
